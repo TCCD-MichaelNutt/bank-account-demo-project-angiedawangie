@@ -20,6 +20,7 @@ void Account::deposit(string pin, float amount)
         case 0:
         {
             cout << "Deposit Successful\n";
+            m_depositHistory.push_back(amount);
             break;
         }
         case -1:
@@ -48,7 +49,7 @@ void Account::withdraw(string pin, float amount)
         {
         case 0:
         {
-            cout << "Deposit Successful\n";
+            cout << "Withdraw Successful\n";
             break;
         }
         case -1:
@@ -79,3 +80,15 @@ float Account::checkBalance(string pin)
         return m_accountBalance;
     return -1.0f;
 }
+
+void Account::printDepositHistory()
+{
+    int numDeposits = m_depositHistory.size();
+
+    for (int i{ 0 }; i < numDeposits; i++)
+    {
+        cout << m_depositHistory[i] << "\n";
+    }
+
+    return;
+}}
